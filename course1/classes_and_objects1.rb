@@ -11,6 +11,14 @@ class MyCar
     @current_speed = 0
   end
 
+  def to_s
+    "This car is a #{self.color} #{self.year} #{@model}"
+  end
+
+  def self.gas_mileage(gallons, miles)
+    puts "#{miles / gallons} miles per gallon"
+  end
+
   def speed_up(number)
     @current_speed += number
     puts "You push the gas pedal and accelerate #{number} mph"
@@ -49,9 +57,21 @@ lumina.current_speed
 lumina.shut_off
 lumina.current_speed
 
+puts '-----'
+
 lumina.color = 'black'
 puts lumina.color
 puts lumina.year
 
+puts '-----'
+
 lumina.spray_paint('green')
 puts lumina.color
+
+puts '-----'
+
+MyCar.gas_mileage(14, 450)
+
+puts '-----'
+
+puts lumina 
