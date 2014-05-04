@@ -1,0 +1,53 @@
+#quiz for lesson 2
+
+
+1) Name what each of the below is:
+
+
+  a = 1 
+    # => ex. a is a local variable, and is a Fixnum object with value 1. 
+  @a = 2
+    # => a is an instance variable Fixnum object w/value 2.
+  user = User.new
+    # => user is a new object of the User class.
+  user.name
+    # => calling the name "getter" method on the user object.
+  user.name = "Joe"
+    # => calling the name "setter" method on the user object, changing name instance variable to "Joe."
+
+
+2) How does a class mixin a module?
+  # => include "Module"
+
+
+3) What's the difference between class variables and instance variables?
+  # => a class variable starts w/ @@ and is available to the class, while an instance variable starts w/ @ and is only avilable to each individualt instance
+
+
+4) What does attr_accessor do?
+  # => creates "getter" and "setter" methods for any instance variables included after attr_accessor.
+
+
+5) How would you describe this expression: Dog.some_method
+  # => you are calling the class method "some_method" on the Dog class
+
+
+6) In Ruby, what's the difference between subclassing and mixing in modules?
+  # =>  subclassing ("is a" relationship) - single inheritance
+        mixins ("has a" relationship) - allows for multiple inheritance. Not a class.
+
+
+7) Given that I can instantiate a user like this: User.new('Bob'), what would the initialize method look like for the User class?
+  # =>  def initialize(name)
+          @name = name
+        end
+
+
+8) Can you call instance methods of the same class from other instance methods in that class?
+  # => yes
+
+
+9) When you get stuck, what's the process you use to try to trap the error?
+  # =>  debugging
+          * require 'pry'
+          * binding.pry

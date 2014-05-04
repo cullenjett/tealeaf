@@ -1,0 +1,50 @@
+Object Oriented Blackjack Game
+
+*********
+* NOUNS *
+*********
+
+Card
+Deck
+Player
+Dealer
+Hand(?)
+
+
+*********
+* VERBS *
+*********
+
+Shuffle
+Deal
+Calculate hand
+Hit
+Stay
+Bust
+Start new game
+
+
+**************
+* GAME LOGIC *
+**************
+
+create: Deck, Player, Dealer
+
+deal 2 cards to player and dealer
+
+show hand to player
+
+check for blackjack
+
+ask for input from player
+
+while player's total is less than 21
+  -if player hits, give a card, calc total, check for blackjack/bust, show hand, ask for input from player
+  -else (stay) calc total
+
+while dealer's total is less than 17
+  -give card, calc total, check for blackjack/bust
+
+compare hands, declare winner
+
+
