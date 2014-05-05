@@ -118,8 +118,9 @@ class Dealer
 
   def show_flop
     puts "--- #{name}'s Hand ---"
-    puts "> 1st card hidden"
+    puts "> * hidden *"
     puts "> #{cards[1]}"
+    puts ''
   end
 end #Dealer
 
@@ -142,9 +143,20 @@ class Blackjack
   end
 
 
+  def welcome
+    puts "************************"
+    puts "* WELCOME TO BLACKJACK *"
+    puts "************************"
+    puts ''
+  end
+
+
   def set_player_name
     puts "What should I call you?"
     player.name = gets.chomp
+    puts ''
+    puts "Dealing..."
+    puts ''
   end
 
 
@@ -182,46 +194,51 @@ class Blackjack
 
 
   def player_turn
-    puts "#{player.name}'s Turn"
+    puts "* #{player.name}'s Turn *"
 
     blackjack_or_bust?(player)
 
     while !player.is_busted? 
-      puts "What would you like to do? Type 1 for 'Hit' or 2 for 'Stay'."
+      puts "What would you like to do? 1) Hit 2) Stay."
       response = gets.chomp
+      puts ''
   
       if !['1', '2'].include?(response)
-        puts "Error: you must enter 1 or 2"
+        puts "ERROR: you must enter 1 or 2"
         next
       end
 
       if response == '2'
-        puts "#{player.name} chose to stay"
+        puts "#{player.name} stays at #{player.total}."
+        puts ''
         break
       end
 
       #hit
       new_card = deck.deal_one
-      puts "Dealing card to #{player.name}: #{new_card}"
+      puts "#{player.name} drew the #{new_card}"
       player.add_card(new_card)
+      puts ''
       puts "#{player.name}'s total is now: #{player.total}"
+      puts ''
 
       blackjack_or_bust?(player)
     end
-    puts "#{player.name} stays at #{player.total}."
   end
 
 
   def dealer_turn
-    puts "#{dealer.name}'s Turn"
+    puts "* #{dealer.name}'s Turn *"
+    puts ''
 
     blackjack_or_bust?(dealer)
 
     while dealer.total < DEALER_HIT_MIN
       new_card = deck.deal_one
-      puts "Dealing card to #{dealer.name}: #{new_card}"
+      puts "#{dealer.name} drew the #{new_card}"
       dealer.add_card(new_card)
       puts "#{dealer.name}'s total: #{dealer.total}"
+      puts ''
 
       blackjack_or_bust?(dealer)
     end
@@ -243,7 +260,7 @@ class Blackjack
 
   def play_again?
     puts ''
-    puts "Would you like to play again? 1) yes 2) no, get me outta here!"
+    puts "Would you like to play again? 1) Yes 2) No way!"
     if gets.chomp == '1'
       puts "Starting new game..."
       puts ''
@@ -253,13 +270,14 @@ class Blackjack
       dealer.cards = []
       start
     else
-      puts "Thanks anyway."
+      puts "Goodbye."
       exit
     end
   end
 
 
   def start
+    welcome
     set_player_name
     deal_cards
     show_flop
