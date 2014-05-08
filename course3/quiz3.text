@@ -1,0 +1,55 @@
+QUIZ 3
+
+---Please review this quiz, which covers lesson 3 materials---
+
+1) What is HTML? What is CSS? What is Javascript?
+
+  * All three are front end technologies. HTML lays out the basics of web pages, CSS styles those pages, and Javascript enhances those pages by using the client's resources.
+
+2) What are the major parts of an HTTP request?
+
+  * Verb (GET, POST...), the URL, and the message.
+
+3) What are the major parts of an HTTP response?
+
+  * Status code and message.
+
+4) How do you submit an HTTP POST request, with a "username" attribute set to "bob"? What if we wanted a GET request instead?
+
+  * params[:username] = 'bob'
+
+5) Why is it important for us, as web developers, to understand that HTTP is a "stateless" protocol?
+
+  * Data isn't persistant from request to request.
+
+6) If the internet is just HTTP requests/responses, why do we only use browsers to interface with web applications? Are there any other options?
+
+  * To make the code readable. HTTP client?
+
+7) What is MVC, and why is it important?
+
+  * Model View Controller - it defines the functionality/architecture of web apps. Model = data, View = template, Controller = connects the two.
+
+
+---The below questions are about Sinatra:---
+
+1) At a high level, how are requests processed?
+  
+  * Server looks for a matching verb and url, then executes the code in the block.
+
+2) In the controller/action, what's the difference between rendering and redirecting?
+
+  * Rendering = sends template to client; Redirecting = response from server sending browser to new URL
+
+3) In the ERB view template, how do you show dynamic content?
+
+  * Variables, embedded ruby
+
+4) Given what you know about ERB templates, when do you suppose the ERB template is turned into HTML?
+
+  * Server renders before being sent to client
+
+5) What's the role of instance variables in Sinatra?
+
+  * Keep/transfer data between controller/helper methods and templates
+
